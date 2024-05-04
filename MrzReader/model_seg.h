@@ -5,7 +5,7 @@
 #include <opencv2/core.hpp>
 #include "ModelResult.h"
 
-namespace mrz {
+namespace mrz { 
 	
 	class  ModelSeg :public ModelBase{
 	public:
