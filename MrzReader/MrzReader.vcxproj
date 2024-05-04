@@ -51,8 +51,12 @@
     <ClInclude Include="modelBase.h" />
     <ClInclude Include="ModelResult.h" />
     <ClInclude Include="model_utils.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="utility.h" />
     <ClInclude Include="YuNet.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MrzReader.rc" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
@@ -108,6 +112,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)$(Platform)</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>false</VcpkgEnabled>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -170,7 +177,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <EnableModules>true</EnableModules>
-      <AdditionalIncludeDirectories>$(OutDir);$(TESS_INC);$(LEPT_INC);$(TESS_INC)\tesseract;E:\Library\tutorial\custom\tesseract\build2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(OutDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
@@ -179,8 +186,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalLibraryDirectories>$(OutDir);D:\downloads\Compressed\paddle_inference\paddle\lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opencv_world490.lib;$(TESS_LIB)\tesseract50.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_world490.lib;tesseract50.lib;leptonica-1.81.1.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
